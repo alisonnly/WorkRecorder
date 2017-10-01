@@ -8,4 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Widget.CalendarView.Custom" parent="android:Widget.CalendarView">
+        <!--For Calendar page-->
+        <item name="daysPrimaryColor">@color/colorCalendarDay</item>
+    </style>
+
 </resources>
