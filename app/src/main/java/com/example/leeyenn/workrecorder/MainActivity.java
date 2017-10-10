@@ -8,7 +8,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     //Variable declaration
-    Button Record, Calculate;
+    Button Record, Calendar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Find the UI elements
         Record = (Button)findViewById(R.id.btnRecord);
-        Calculate = (Button)findViewById(R.id.btnCalculate);
+        Calendar = (Button)findViewById(R.id.btnCalendar);
 
         //Set listener for all buttons
         Record.setOnClickListener(new View.OnClickListener(){
@@ -32,13 +32,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Calculate.setOnClickListener(new View.OnClickListener(){
+        Calendar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent calculateIntent = new Intent(MainActivity.this, CalculatePage.class);
-                startActivity(calculateIntent);
+                Intent calendarIntent = new Intent(MainActivity.this, CalendarPage.class);
+                startActivity(calendarIntent);
             }
             //Redirect to Calculate Page
         });
+
+
     }
 }

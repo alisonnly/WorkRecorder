@@ -21,11 +21,11 @@
             android:text="Record" />
 
         <Button
-            android:id="@+id/btnCalculate"
+            android:id="@+id/btnCalendar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Calculate" />
+            android:text="Calendar" />
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
