@@ -1,5 +1,6 @@
 package com.example.leeyenn.workrecorder;
 
+import android.app.ActionBar;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -122,6 +123,11 @@ public class RecordDBHandler extends SQLiteOpenHelper{
                 cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4),
                 cursor.getString(5), cursor.getString(6), cursor.getInt(7), cursor.getFloat(8));
 
+        //Close the cursor
+        cursor.close();
+        //Close the db
+        db.close();
+
         return record;
     }
 
@@ -130,7 +136,7 @@ public class RecordDBHandler extends SQLiteOpenHelper{
         List<Record> recordList = new ArrayList<Record>();
 
         //Select all query
-        String selectQuery = "Select * FROM " + TABLE_NAME;
+        String selectQuery = "SELECT * FROM " + TABLE_NAME;
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
@@ -150,6 +156,12 @@ public class RecordDBHandler extends SQLiteOpenHelper{
                 recordList.add(record);
             } while (cursor.moveToNext());
         }
+
+        //Close the cursor
+        cursor.close();
+        //Close the db
+        db.close();
+
         return recordList;
     }
 
@@ -170,7 +182,12 @@ public class RecordDBHandler extends SQLiteOpenHelper{
         values.put(COLUMN_TRIPPRICE, record.getfTripPrice());
 
         //Update query
-        return db.update(TABLE_NAME, values, COLUMN_RECORDID + " = ?", new String[]{String.valueOf(record.getIntRecordID())});
+        int updatedRows = db.update(TABLE_NAME, values, COLUMN_RECORDID + " = ?", new String[]{String.valueOf(record.getIntRecordID())});
+
+        //Close the db
+        db.close();
+
+        return updatedRows;
     }
 
     //Delete Record
@@ -178,9 +195,30 @@ public class RecordDBHandler extends SQLiteOpenHelper{
         //Get write access
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_NAME, COLUMN_RECORDID + " = ?", new String[]{ String.valueOf(record.getIntRecordID()) });
+        //Close the db
         db.close();
     }
 
+    //Check if there is any record
+    public int checkForExistingRecord(String date) {
+        String query = "SELECT COUNT(recordID) AS CountRecord FROM  " + TABLE_NAME + " WHERE " + COLUMN_TRIPDATE + "= '" + date + "'";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+
+        //If there is data
+        if (cursor != null){
+            //Go to the first record
+            cursor.moveToFirst();
+        }
+        int recordCount = cursor.getInt(0);
+
+        //Close the cursor
+        cursor.close();
+        //Close the db
+        db.close();
+
+        return recordCount;
+    }
 
 
 
