@@ -22,19 +22,13 @@ public class RecordPage extends AppCompatActivity {
         selectedDate = getIntent().getStringExtra("chosenDate");
 
         //Get UI elements
-        displayDate = (TextView)findViewById(R.id.display);
+
 
         //Set text
-        displayDate.setText(selectedDate);
+
 
         //Set Listeners
-        displayDate.setOnClickListener(new View.OnClickListener(){
 
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
 
 
     }

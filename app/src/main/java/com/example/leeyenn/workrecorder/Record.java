@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Created by leeyenn on 29-09-17.
  * Get Setter for work records
- * date, companyname, location, type of rubbish, no of trips, price
+ * date, time, companyname, location, door, type of rubbish, no of trips, price
  */
 
 public class Record {

@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Work Recorder</string>
+    <string name="TripDate">Trip Date</string>
+    <string name="TripTime">Trip Time</string>
+    <string name="CompanyName">Company</string>
+    <string name="CompanyLocation">Company Location</string>
+    <string name="Door">Door</string>
+    <string name="TypeOfRubbish">Rubbish Type</string>
+    <string name="NoOfTrips">Number of Trip</string>
+    <string name="TripPrice">Trip Price</string>
 </resources>
