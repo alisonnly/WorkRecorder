@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.CalendarView;
 
+import java.io.Serializable;
 import java.util.GregorianCalendar;
 
 
@@ -29,18 +30,20 @@ public class CalendarPage extends AppCompatActivity {
                 CommonFunction commonFunction = new CommonFunction();
                 //Convert date to string
                 String storeDate = commonFunction.convertDateToString(selectedDate);
+                Record record = new Record();
+                record.setdTripDate(storeDate);
 
                 //Go into DB to check for existing data
                 Log.i("Check DB", "Checking for records");
                 RecordDBHandler recordDBHandler = new RecordDBHandler(CalendarPage.this);
-                int checkRecordCount = recordDBHandler.checkForExistingRecord(storeDate);
+                int checkRecordCount = recordDBHandler.checkForExistingRecord(record.getdTripDate());
 
                 if (checkRecordCount <= 0){
                     //If there is no record, let user create new record
                     Log.i("No Record", "No Record Found");
                     //Pass value over with intent
                     Intent calendarIntent = new Intent(CalendarPage.this, RecordPage.class);
-                    calendarIntent.putExtra("chosenDate", storeDate);
+                    calendarIntent.putExtra("Record", record);
                     startActivity(calendarIntent);
                 }
                 else {

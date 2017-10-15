@@ -1,14 +1,16 @@
 package com.example.leeyenn.workrecorder;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by leeyenn on 29-09-17.
  * Get Setter for work records
  * date, time, companyname, location, door, type of rubbish, no of trips, price
+ * Implement serializable to pass object over intent
  */
 
-public class Record {
+public class Record implements Serializable {
 
     //Variables Declaration
     int intRecordID, intNumOfTrip;
