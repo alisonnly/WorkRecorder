@@ -8,4 +8,5 @@
     <string name="TypeOfRubbish">Rubbish Type</string>
     <string name="NoOfTrips">Number of Trip</string>
     <string name="TripPrice">Trip Price</string>
+    <string name="GetAddress">Get Address</string>
 </resources>

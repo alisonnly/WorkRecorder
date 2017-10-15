@@ -12,6 +12,8 @@ import java.util.GregorianCalendar;
 
 public class CalendarPage extends AppCompatActivity {
 
+    private CommonFunction commonFunction;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,14 +22,16 @@ public class CalendarPage extends AppCompatActivity {
         //Find UI elements of calendar
         CalendarView calendarView = (CalendarView)findViewById(R.id.calendar);
 
+        //Initializing commonfunction class
+        commonFunction = new CommonFunction(this);
+
         //Set listener for calendar
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener(){
 
             public void onSelectedDayChange(CalendarView cView, int year, int month, int dayOfMonth){
                 //Combine the dates together
                 GregorianCalendar selectedDate = (new GregorianCalendar( year, month, dayOfMonth ));
-                //Initializing commonfunction class
-                CommonFunction commonFunction = new CommonFunction();
+
                 //Convert date to string
                 String storeDate = commonFunction.convertDateToString(selectedDate);
                 Record record = new Record();
