@@ -5,6 +5,7 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -33,6 +34,7 @@ public class RecordPage extends AppCompatActivity {
     private DatePickerDialog.OnDateSetListener datePickerDialog;
     private TimePickerDialog  timePickerDialog;
     private LocationManager locationManager;
+    private String provider;
     private LocationListener locationListener;
     private String lat, lon;
 
@@ -53,6 +55,7 @@ public class RecordPage extends AppCompatActivity {
         tDateEditText = (EditText)findViewById(R.id.tripDateEditText);
         tTimeEditText = (EditText)findViewById(R.id.tripTimeEditText);
         btnGetAddress = (Button)findViewById(R.id.getAddressButton);
+        cLocationEditText = (EditText)findViewById(R.id.companyLocationEditText);
 
         //Set text
         currentDate = commonFunction.formatDate(record.getdTripDate());
@@ -103,54 +106,79 @@ public class RecordPage extends AppCompatActivity {
         });
 
         //Get Address Button
-//        btnGetAddress.setOnClickListener(new View.OnClickListener(){
-//
-//            @Override
-//            public void onClick(View view) {
-//                locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
-//                //Check if GPS is ON
-//                boolean statusOfGPS = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-//                if (statusOfGPS == false){
-//                    Toast.makeText(RecordPage.this, "Please turn on GPS and try again!", Toast.LENGTH_SHORT).show();
-//                }
-//                locationListener = new LocationListener() {
-//                    @Override
-//                    public void onLocationChanged(Location location) {
-//                        lat = Double.toString(location.getLatitude());
-//                        lon = Double.toString(location.getLongitude());
-//                        tTimeEditText.setText(commonFunction.getAddress(lat,lon));
-//                    }
-//
-//                    @Override
-//                    public void onStatusChanged(String s, int i, Bundle bundle) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onProviderEnabled(String s) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onProviderDisabled(String s) {
-//
-//                    }
-//
-//                };
-//                if (ActivityCompat.checkSelfPermission(RecordPage.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(RecordPage.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-//                    // TODO: Consider calling
-//                    //    ActivityCompat#requestPermissions
-//                    // here to request the missing permissions, and then overriding
-//                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-//                    //                                          int[] grantResults)
-//                    // to handle the case where the user grants the permission. See the documentation
-//                    // for ActivityCompat#requestPermissions for more details.
-//                    return;
-//                }
-//                locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,0,0,locationListener);
-//                tTimeEditText.setText(commonFunction.getAddress(lat,lon));
-//            }
-//        });
+        btnGetAddress.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+
+                // Creating an empty criteria object
+                Criteria criteria = new Criteria();
+
+                // Getting the name of the provider that meets the criteria
+                provider = locationManager.getBestProvider(criteria, false);
+
+                //Check if GPS is ON
+                boolean statusOfGPS = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+                if (statusOfGPS == false){
+                    Toast.makeText(RecordPage.this, "Please turn on GPS and try again!", Toast.LENGTH_SHORT).show();
+                }
+                // Get the location from the given provider
+                Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+
+                //Detect location change
+                locationListener = new LocationListener() {
+
+                    @Override
+                    public void onLocationChanged(Location location) {
+                        lat = Double.toString(location.getLatitude());
+                        lon = Double.toString(location.getLongitude());
+                        cLocationEditText.setText(commonFunction.getAddress(lat,lon));
+                    }
+
+                    @Override
+                    public void onStatusChanged(String s, int i, Bundle bundle) {
+
+                    }
+
+                    @Override
+                    public void onProviderEnabled(String s) {
+
+                    }
+
+                    @Override
+                    public void onProviderDisabled(String s) {
+
+                    }
+
+                };
+                if (ActivityCompat.checkSelfPermission(RecordPage.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(RecordPage.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
+                    return;
+                }
+
+                locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 500, 0, locationListener);
+
+                if (location != null) {
+                    locationListener.onLocationChanged(location);
+                }
+                else {
+                    location = locationManager.getLastKnownLocation(provider);
+                }
+                if (location != null) {
+                    locationListener.onLocationChanged(location);
+                }
+                else {
+                    Toast.makeText(getBaseContext(), "Location can't be retrieved", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
 
     }

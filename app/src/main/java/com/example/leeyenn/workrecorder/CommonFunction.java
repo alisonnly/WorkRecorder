@@ -94,35 +94,30 @@ public class CommonFunction {
         return newStringDate;
     }
 
-//    //Get location lat,long
-//    public void getCurrentLocation() {
-//
-//    }
-//
-//    //Get address
-//    public String getAddress(String lat, String lon){
-//        Geocoder geoCoder = new Geocoder(context, Locale.ENGLISH);
-//        String currentAddress = "";
-//        try{
-//            //Get address with lat, long, max 1 result
-//            List<Address> addresses = geoCoder.getFromLocation(Double.parseDouble(lat), Double.parseDouble(lon), 1);
-//            if (addresses != null){
-//                Address returnedAddress = addresses.get(0);
-//                StringBuilder returnedStringAddress = new StringBuilder();
-//                for (int i = 0; i < returnedAddress.getMaxAddressLineIndex(); i++){
-//                    returnedStringAddress.append(returnedAddress.getAddressLine(i)).append("\n");
-//                }
-//                currentAddress = returnedStringAddress.toString();
-//            }
-//            else {
-//                currentAddress = "No Address Found";
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            currentAddress = "Can't get Address";
-//        }
-//        return currentAddress;
-//    }
+    //Get address
+    public String getAddress(String lat, String lon){
+        Geocoder geoCoder = new Geocoder(context, Locale.ENGLISH);
+        String currentAddress = "";
+        try{
+            //Get address with lat, long, max 1 result
+            List<Address> addresses = geoCoder.getFromLocation(Double.parseDouble(lat), Double.parseDouble(lon), 1);
+            if (addresses != null){
+                Address returnedAddress = addresses.get(0);
+                StringBuilder returnedStringAddress = new StringBuilder();
+                for (int i = 0; i <= returnedAddress.getMaxAddressLineIndex(); i++){
+                    returnedStringAddress.append(returnedAddress.getAddressLine(i));
+                }
+                currentAddress = returnedStringAddress.toString();
+            }
+            else {
+                currentAddress = "No Address Found";
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            currentAddress = "Can't get Address";
+        }
+        return currentAddress;
+    }
 
 
 

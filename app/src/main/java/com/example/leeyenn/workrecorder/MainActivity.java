@@ -1,8 +1,10 @@
 package com.example.leeyenn.workrecorder;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
     final private int REQUEST_NETWORK_ASK_PERMISSIONS = 2;
     final private int REQUEST_COARSE_ASK_PERMISSIONS = 3;
     final private int REQUEST_INTERNET_ASK_PERMISSIONS = 4;
+    private int PERMISSION_ALL = 1;
+    private String[] PERMISSIONS = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION,
+            Manifest.permission.INTERNET};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,13 +60,22 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //Check for permission
+    public static boolean hasPermissions(Context context, String[] permissions) {
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && context != null && permissions != null) {
+            for (String permission : permissions) {
+                if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
     //Get user permission
     private void requestPermission() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ) {
-            ActivityCompat
-                    .requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_FINE_LOCATION_ASK_PERMISSIONS);
-            ActivityCompat
-                    .requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, REQUEST_COARSE_ASK_PERMISSIONS);
+        if(!hasPermissions(this, PERMISSIONS)){
+            ActivityCompat.requestPermissions(this, PERMISSIONS, PERMISSION_ALL);
         }
     }
 
