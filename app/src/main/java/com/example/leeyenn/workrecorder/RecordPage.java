@@ -197,30 +197,33 @@ public class RecordPage extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                record.setdTripDate(tDateEditText.getText().toString());
-                record.setdTripTime(tTimeEditText.getText().toString());
-                record.setsCompanyName(cNameEditText.getText().toString());
-                record.setsCompanyLocation(cLocationEditText.getText().toString());
-                record.setsCompanyDoor(cLocationEditText.getText().toString());
-                record.setsTypeOfRubbish(tRubbishEditText.getText().toString());
-                record.setIntNumOfTrip(Integer.parseInt(numOfTripEditText.getText().toString()));
-                record.setfTripPrice(Float.parseFloat(tPriceEditText.getText().toString()));
+                Boolean emptyNumOfTrip = commonFunction.validateNumOfTrip(numOfTripEditText.getText().toString());
+                Boolean emptyTripPrice = commonFunction.validateTripPrice(tPriceEditText.getText().toString());
+                if (emptyNumOfTrip == false && emptyTripPrice == false){
+                    record.setdTripDate(tDateEditText.getText().toString());
+                    record.setdTripTime(tTimeEditText.getText().toString());
+                    record.setsCompanyName(cNameEditText.getText().toString());
+                    record.setsCompanyLocation(cLocationEditText.getText().toString());
+                    record.setsCompanyDoor(cLocationEditText.getText().toString());
+                    record.setsTypeOfRubbish(tRubbishEditText.getText().toString());
+                    record.setIntNumOfTrip(Integer.parseInt(numOfTripEditText.getText().toString()));
+                    record.setfTripPrice(Float.parseFloat(tPriceEditText.getText().toString()));
 
-                //Get DBHandler
-                RecordDBHandler recordDBHandler = new RecordDBHandler(RecordPage.this);
-                long rowInserted = recordDBHandler.createRecord(record);
-                if(rowInserted != -1){
-                    Toast.makeText(getBaseContext(), "Record created successfully!", Toast.LENGTH_SHORT).show();
-                    //Direct to view record page
-                    Intent viewRecordIntent = new Intent(RecordPage.this, ViewRecordPage.class);
-                    viewRecordIntent.putExtra("InsertID", rowInserted);
-                    startActivity(viewRecordIntent);
+                    //Get DBHandler
+                    RecordDBHandler recordDBHandler = new RecordDBHandler(RecordPage.this);
+                    long rowInserted = recordDBHandler.createRecord(record);
+                    if(rowInserted != -1){
+                        Toast.makeText(getBaseContext(), "Record created successfully!", Toast.LENGTH_SHORT).show();
+                        //Direct to view record page
+                        Intent viewRecordIntent = new Intent(RecordPage.this, ViewRecordPage.class);
+                        viewRecordIntent.putExtra("InsertID", rowInserted);
+                        startActivity(viewRecordIntent);
 
+                    }
+                    else {
+                        Toast.makeText(getBaseContext(), "Record not created successfully. Please try again!", Toast.LENGTH_SHORT).show();
+                    }
                 }
-                else {
-                    Toast.makeText(getBaseContext(), "Record not created successfully. Please try again!", Toast.LENGTH_SHORT).show();
-                }
-
             }
         });
 

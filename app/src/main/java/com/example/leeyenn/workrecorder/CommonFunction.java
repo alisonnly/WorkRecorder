@@ -132,31 +132,31 @@ public class CommonFunction {
         return currentAddress;
     }
 
-//    //Validate Trip Date
-//    public Boolean validateTripDate(String date){
-//        Boolean emptyInput;
-//        if (!TextUtils.isEmpty(date)){
-//            emptyInput = false;
-//        }
-//        else {
-//            emptyInput = true;
-//            Toast.makeText(context, "Please enter a date", Toast.LENGTH_SHORT).show();
-//        }
-//        return emptyInput;
-//    }
-//
-//    //Validate Trip Time
-//    public Boolean validateTripTime(String time){
-//        Boolean emptyInput;
-//        if (!TextUtils.isEmpty(time)){
-//            emptyInput = false;
-//        }
-//        else {
-//            emptyInput = true;
-//            Toast.makeText(context, "Please enter a time", Toast.LENGTH_SHORT).show();
-//        }
-//        return emptyInput;
-//    }
+    //Validate Number of trip
+    public Boolean validateNumOfTrip(String numOfTrip){
+        Boolean emptyInput;
+        if (!TextUtils.isEmpty(numOfTrip)){
+            emptyInput = false;
+        }
+        else {
+            emptyInput = true;
+            Toast.makeText(context, "Please enter number of trip", Toast.LENGTH_SHORT).show();
+        }
+        return emptyInput;
+    }
+
+    //Validate Trip Time
+    public Boolean validateTripPrice(String price){
+        Boolean emptyInput;
+        if (!TextUtils.isEmpty(price)){
+            emptyInput = false;
+        }
+        else {
+            emptyInput = true;
+            Toast.makeText(context, "Please enter a trip price", Toast.LENGTH_SHORT).show();
+        }
+        return emptyInput;
+    }
 
 
 
