@@ -13,6 +13,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
+import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -35,10 +36,7 @@ import java.util.TimeZone;
 
 public class CommonFunction {
 
-    private LocationManager locationManager;
-    private LocationListener locationListener;
     private Context context;
-    private String lat, lon;
 
     public CommonFunction(Context context) {
         this.context = context;
@@ -47,11 +45,26 @@ public class CommonFunction {
     //Convert Date to string
     public String convertDateToString(GregorianCalendar gDate) {
         //Specify the date format. Sqlite has to be in yyyy-MM-dd format
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd",
-                java.util.Locale.getDefault());
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         simpleDateFormat.setCalendar(gDate);
         String newStringDate = simpleDateFormat.format(gDate.getTime());
         return newStringDate;
+    }
+
+    //Formate String date
+    public String formatStringDate(String oldDate){
+        Date parseDate;
+        String newDate = "";
+
+        SimpleDateFormat inputDate = new SimpleDateFormat("dd MMM yyyy");
+        SimpleDateFormat outputDate = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        try {
+            parseDate = inputDate.parse(oldDate);
+            newDate = outputDate.format(parseDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return newDate;
     }
 
 //    //Convert string to date
@@ -118,6 +131,32 @@ public class CommonFunction {
         }
         return currentAddress;
     }
+
+//    //Validate Trip Date
+//    public Boolean validateTripDate(String date){
+//        Boolean emptyInput;
+//        if (!TextUtils.isEmpty(date)){
+//            emptyInput = false;
+//        }
+//        else {
+//            emptyInput = true;
+//            Toast.makeText(context, "Please enter a date", Toast.LENGTH_SHORT).show();
+//        }
+//        return emptyInput;
+//    }
+//
+//    //Validate Trip Time
+//    public Boolean validateTripTime(String time){
+//        Boolean emptyInput;
+//        if (!TextUtils.isEmpty(time)){
+//            emptyInput = false;
+//        }
+//        else {
+//            emptyInput = true;
+//            Toast.makeText(context, "Please enter a time", Toast.LENGTH_SHORT).show();
+//        }
+//        return emptyInput;
+//    }
 
 
 

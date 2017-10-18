@@ -11,216 +11,258 @@
 
 
     <ScrollView
-        android:layout_width="374dp"
-        android:layout_height="499dp"
+        android:layout_width="480dp"
+        android:layout_height="953dp"
         tools:layout_editor_absoluteY="8dp"
         android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent">
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="8dp">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:weightSum="1">
-
-            <TextView
-                android:id="@+id/tripDateTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/TripDate"
-                android:layout_marginLeft="16dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_weight="0.00" />
-
-            <EditText
-                android:id="@+id/tripDateEditText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="33dp"
-                android:ems="10"
-                android:inputType="date"
-                android:focusable="false"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tripTimeTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/TripTime"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="76dp"
-                android:layout_marginLeft="16dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                android:layout_marginStart="16dp" />
-
-            <EditText
-                android:id="@+id/tripTimeEditText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="time"
-                android:layout_marginLeft="16dp"
-                android:focusable="false"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="93dp"
-                android:layout_marginStart="16dp" />
-
-            <TextView
-                android:id="@+id/companyNameTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/CompanyName"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="136dp"
-                android:layout_marginLeft="16dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                android:layout_marginStart="16dp" />
-
-            <EditText
-                android:id="@+id/companyNameEditText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:layout_marginLeft="16dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="153dp"
-                android:layout_marginStart="16dp" />
-
-            <TextView
-                android:id="@+id/companyLocationTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/CompanyLocation"
-                android:layout_marginLeft="16dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="196dp"
-                android:layout_marginStart="16dp" />
-
-            <EditText
-                android:id="@+id/companyLocationEditText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPostalAddress"
-                android:layout_marginLeft="16dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="213dp"
-                android:layout_marginStart="16dp" />
-
-            <TextView
-                android:id="@+id/doorTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/Door"
-                android:layout_marginLeft="16dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                android:layout_marginTop="256dp"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginStart="16dp" />
-
-            <EditText
-                android:id="@+id/doorEditText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:layout_marginLeft="16dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="273dp"
-                android:layout_marginStart="16dp" />
-
-            <TextView
-                android:id="@+id/typeOfRubbishTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/TypeOfRubbish"
-                android:layout_marginLeft="16dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="316dp"
-                android:layout_marginStart="16dp" />
-
-            <EditText
-                android:id="@+id/typeOfRubbishEditText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:layout_marginLeft="16dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="333dp"
-                android:layout_marginStart="16dp" />
-
-            <TextView
-                android:id="@+id/noOfTripTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/NoOfTrips"
-                android:layout_marginLeft="16dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="376dp"
-                android:layout_marginStart="16dp" />
-
-            <EditText
-                android:id="@+id/noOfTripEditText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="number"
-                android:layout_marginLeft="16dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="393dp"
-                android:layout_marginStart="16dp" />
-
-            <TextView
-                android:id="@+id/tripPriceTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/TripPrice"
-                android:layout_marginLeft="16dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="436dp"
-                android:layout_marginStart="16dp" />
-
-            <EditText
-                android:id="@+id/tripPriceditText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="numberDecimal"
-                android:layout_marginLeft="16dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="452dp"
-                android:layout_marginStart="16dp" />
-
-            <Button
-                android:id="@+id/getAddressButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/companyLocationEditText"
-                android:layout_toRightOf="@+id/companyLocationEditText"
-                android:text="@string/GetAddress"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_below="@+id/companyLocationTextView" />
-
-        </RelativeLayout>
     </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="475dp"
+        android:layout_height="957dp"
+        android:orientation="vertical"
+        android:weightSum="1"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="3dp">
+
+        <TextView
+            android:id="@+id/tripDateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_weight="0.00"
+            android:text="@string/TripDate"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/tripDateEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="33dp"
+            android:ems="10"
+            android:focusable="false"
+            android:inputType="date"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignLeft="@+id/tripDateTextView"
+            android:layout_alignStart="@+id/tripDateTextView" />
+
+        <TextView
+            android:id="@+id/tripTimeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="76dp"
+            android:text="@string/TripTime"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/tripTimeEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="93dp"
+            android:ems="10"
+            android:focusable="false"
+            android:inputType="time"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignLeft="@+id/tripTimeTextView"
+            android:layout_alignStart="@+id/tripTimeTextView" />
+
+        <TextView
+            android:id="@+id/companyNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="136dp"
+            android:text="@string/CompanyName"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/companyNameEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_below="@+id/companyNameTextView"
+            android:layout_alignLeft="@+id/companyNameTextView"
+            android:layout_alignStart="@+id/companyNameTextView"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:id="@+id/companyLocationTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="196dp"
+            android:text="@string/CompanyLocation"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/companyLocationEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="213dp"
+            android:ems="10"
+            android:inputType="textPostalAddress"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignLeft="@+id/companyLocationTextView"
+            android:layout_alignStart="@+id/companyLocationTextView" />
+
+        <TextView
+            android:id="@+id/doorTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Door"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/getAddressButton"
+            android:layout_alignLeft="@+id/getAddressButton"
+            android:layout_alignStart="@+id/getAddressButton" />
+
+        <EditText
+            android:id="@+id/doorEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_below="@+id/doorTextView"
+            android:layout_alignLeft="@+id/doorTextView"
+            android:layout_alignStart="@+id/doorTextView"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:id="@+id/typeOfRubbishTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/TypeOfRubbish"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_below="@+id/doorEditText"
+            android:layout_alignLeft="@+id/doorEditText"
+            android:layout_alignStart="@+id/doorEditText" />
+
+        <EditText
+            android:id="@+id/typeOfRubbishEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_below="@+id/typeOfRubbishTextView"
+            android:layout_alignLeft="@+id/typeOfRubbishTextView"
+            android:layout_alignStart="@+id/typeOfRubbishTextView"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:id="@+id/noOfTripTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/NoOfTrips"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_below="@+id/typeOfRubbishEditText"
+            android:layout_alignLeft="@+id/typeOfRubbishEditText"
+            android:layout_alignStart="@+id/typeOfRubbishEditText" />
+
+        <EditText
+            android:id="@+id/noOfTripEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_below="@+id/noOfTripTextView"
+            android:layout_alignLeft="@+id/noOfTripTextView"
+            android:layout_alignStart="@+id/noOfTripTextView"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:id="@+id/tripPriceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/TripPrice"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_below="@+id/noOfTripEditText"
+            android:layout_alignLeft="@+id/noOfTripEditText"
+            android:layout_alignStart="@+id/noOfTripEditText" />
+
+        <EditText
+            android:id="@+id/tripPriceditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_below="@+id/tripPriceTextView"
+            android:layout_alignLeft="@+id/tripPriceTextView"
+            android:layout_alignStart="@+id/tripPriceTextView"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:id="@+id/getAddressButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/GetAddress"
+            android:layout_below="@+id/companyLocationEditText"
+            android:layout_alignLeft="@+id/companyLocationEditText"
+            android:layout_alignStart="@+id/companyLocationEditText"
+            android:layout_marginTop="16dp" />
+
+        <Button
+            android:id="@+id/createButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="83dp"
+            android:text="@string/createBtn"
+            android:layout_alignTop="@+id/tripPriceditText"
+            android:layout_toRightOf="@+id/typeOfRubbishTextView"
+            android:layout_toEndOf="@+id/typeOfRubbishTextView" />
+
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancelBtn"
+            android:layout_alignBaseline="@+id/createButton"
+            android:layout_alignBottom="@+id/createButton"
+            android:layout_toRightOf="@+id/createButton"
+            android:layout_toEndOf="@+id/createButton"
+            android:layout_marginLeft="98dp"
+            android:layout_marginStart="98dp" />
+
+    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
