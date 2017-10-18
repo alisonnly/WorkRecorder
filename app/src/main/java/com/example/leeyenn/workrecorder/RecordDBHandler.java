@@ -6,7 +6,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.Toast;
 
 
 import java.util.ArrayList;
@@ -21,7 +20,7 @@ import java.util.List;
 public class RecordDBHandler extends SQLiteOpenHelper{
 
     //Variables declaration
-   // private Context context;
+
     //Database Version
     //If database schema is changed, increment the database version.
     private static final int DATABASE_VERSION = 1;
@@ -54,10 +53,10 @@ public class RecordDBHandler extends SQLiteOpenHelper{
             "DROP TABLE IF EXISTS " + TABLE_NAME;
 
 
+
     public RecordDBHandler(Context context){
         //Initialize the parent class first
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        //this.context = context;
     }
 
     @Override
@@ -81,7 +80,7 @@ public class RecordDBHandler extends SQLiteOpenHelper{
 
     //CRUD Function
     //Create
-    public long createRecord(Record record) {
+    public void createRecord(Record record) {
         //Write to db
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -97,12 +96,10 @@ public class RecordDBHandler extends SQLiteOpenHelper{
         values.put(COLUMN_TRIPPRICE, record.getfTripPrice());
 
         //Inserting rows
-        long rowInserted = db.insert(TABLE_NAME, null, values);
+        db.insert(TABLE_NAME, null, values);
 
         //Close db connection
         db.close();
-
-        return rowInserted;
     }
 
     //Read record by specific ID

@@ -1,12 +1,8 @@
 <resources>
     <string name="app_name">Work Recorder</string>
-    <string name="createBtn">Create</string>
-    <string name="cancelBtn">Cancel</string>
-
-    <!--RecordPage Strings-->
     <string name="TripDate">Trip Date</string>
     <string name="TripTime">Trip Time</string>
-    <string name="CompanyName">Company Name</string>
+    <string name="CompanyName">Company</string>
     <string name="CompanyLocation">Company Location</string>
     <string name="Door">Door</string>
     <string name="TypeOfRubbish">Rubbish Type</string>

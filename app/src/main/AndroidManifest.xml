@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.leeyenn.workrecorder">
 
-    <!-- Get user permission -->
+    <!--Get user permission-->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -27,8 +27,8 @@
         <!-- Add New Activity here -->
         <activity android:name=".RecordPage" />
         <activity android:name=".CalculatePage" />
-        <activity android:name=".CalendarPage" />
-        <activity android:name=".ViewRecordPage"></activity>
+        <activity android:name=".CalendarPage"></activity>
     </application>
+
 
 </manifest>

@@ -4,7 +4,6 @@ import android.Manifest;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Criteria;
 import android.location.Location;
@@ -13,7 +12,6 @@ import android.location.LocationManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -23,13 +21,12 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class RecordPage extends AppCompatActivity {
     //Declare variables
     private String currentDate, currentTimeString;
-    private Button btnGetAddress, btnCreate, btnCancel;
+    private Button btnGetAddress;
     private EditText tDateEditText, tTimeEditText, cNameEditText, cLocationEditText, lDoorEditText, tRubbishEditText, numOfTripEditText, tPriceEditText;
     private CommonFunction commonFunction;
     private GregorianCalendar calendar;
@@ -40,7 +37,6 @@ public class RecordPage extends AppCompatActivity {
     private String provider;
     private LocationListener locationListener;
     private String lat, lon;
-    private Record record;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +44,7 @@ public class RecordPage extends AppCompatActivity {
         setContentView(R.layout.activity_record_page);
 
         //Retrieve passed over date from Calendar Page
-        record = (Record) getIntent().getSerializableExtra("Record");
+        final Record record = (Record) getIntent().getSerializableExtra("Record");
 
         //Initialization
         calendar = new GregorianCalendar(); //For date picker
@@ -58,15 +54,8 @@ public class RecordPage extends AppCompatActivity {
         //Get UI elements
         tDateEditText = (EditText)findViewById(R.id.tripDateEditText);
         tTimeEditText = (EditText)findViewById(R.id.tripTimeEditText);
-        cNameEditText = (EditText)findViewById(R.id.companyNameEditText);
         btnGetAddress = (Button)findViewById(R.id.getAddressButton);
         cLocationEditText = (EditText)findViewById(R.id.companyLocationEditText);
-        lDoorEditText = (EditText)findViewById(R.id.doorEditText);
-        tRubbishEditText = (EditText)findViewById(R.id.typeOfRubbishEditText);
-        numOfTripEditText = (EditText)findViewById(R.id.noOfTripEditText);
-        tPriceEditText = (EditText)findViewById(R.id.tripPriceditText);
-        btnCreate = (Button)findViewById(R.id.createButton);
-        btnCancel = (Button)findViewById(R.id.cancelButton);
 
         //Set text
         currentDate = commonFunction.formatDate(record.getdTripDate());
@@ -188,39 +177,6 @@ public class RecordPage extends AppCompatActivity {
                 else {
                     Toast.makeText(getBaseContext(), "Location can't be retrieved", Toast.LENGTH_SHORT).show();
                 }
-            }
-        });
-
-
-        //Create button pressed
-        btnCreate.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View view) {
-                record.setdTripDate(tDateEditText.getText().toString());
-                record.setdTripTime(tTimeEditText.getText().toString());
-                record.setsCompanyName(cNameEditText.getText().toString());
-                record.setsCompanyLocation(cLocationEditText.getText().toString());
-                record.setsCompanyDoor(cLocationEditText.getText().toString());
-                record.setsTypeOfRubbish(tRubbishEditText.getText().toString());
-                record.setIntNumOfTrip(Integer.parseInt(numOfTripEditText.getText().toString()));
-                record.setfTripPrice(Float.parseFloat(tPriceEditText.getText().toString()));
-
-                //Get DBHandler
-                RecordDBHandler recordDBHandler = new RecordDBHandler(RecordPage.this);
-                long rowInserted = recordDBHandler.createRecord(record);
-                if(rowInserted != -1){
-                    Toast.makeText(getBaseContext(), "Record created successfully!", Toast.LENGTH_SHORT).show();
-                    //Direct to view record page
-                    Intent viewRecordIntent = new Intent(RecordPage.this, ViewRecordPage.class);
-                    viewRecordIntent.putExtra("InsertID", rowInserted);
-                    startActivity(viewRecordIntent);
-
-                }
-                else {
-                    Toast.makeText(getBaseContext(), "Record not created successfully. Please try again!", Toast.LENGTH_SHORT).show();
-                }
-
             }
         });
 
