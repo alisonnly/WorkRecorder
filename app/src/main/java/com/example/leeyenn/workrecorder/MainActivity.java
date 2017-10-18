@@ -13,6 +13,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+/**
+ * Created by leeyenn on 11-10-17.
+ *
+ * Main page
+ */
+
 public class MainActivity extends AppCompatActivity {
     //Variable declaration
     Button Record, Calendar;

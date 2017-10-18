@@ -13,8 +13,6 @@ import android.location.LocationManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -23,8 +21,13 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
+
+/**
+ * Created by leeyenn on 11-10-17.
+ *
+ * Create new record page
+ */
 
 public class RecordPage extends AppCompatActivity {
     //Declare variables
@@ -216,7 +219,6 @@ public class RecordPage extends AppCompatActivity {
                         Toast.makeText(getBaseContext(), "Record created successfully!", Toast.LENGTH_SHORT).show();
                         //Direct to view record page
                         Intent viewRecordIntent = new Intent(RecordPage.this, ViewRecordPage.class);
-                        viewRecordIntent.putExtra("InsertID", rowInserted);
                         startActivity(viewRecordIntent);
 
                     }

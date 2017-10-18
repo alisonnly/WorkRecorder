@@ -9,6 +9,11 @@ import android.widget.CalendarView;
 import java.io.Serializable;
 import java.util.GregorianCalendar;
 
+/**
+ * Created by leeyenn on 11-10-17.
+ *
+ * View calendar page
+ */
 
 public class CalendarPage extends AppCompatActivity {
 
