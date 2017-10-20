@@ -28,7 +28,8 @@
         <activity android:name=".RecordPage" />
         <activity android:name=".CalculatePage" />
         <activity android:name=".CalendarPage" />
-        <activity android:name=".ViewRecordPage"></activity>
+        <activity android:name=".ViewRecordPage" />
+        <activity android:name=".ViewIndivRecordPag"></activity>
     </application>
 
 </manifest>
