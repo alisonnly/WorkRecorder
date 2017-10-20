@@ -51,7 +51,7 @@ public class RecordPage extends AppCompatActivity {
         setContentView(R.layout.activity_record_page);
 
         //Retrieve passed over date from Calendar Page
-        record = (Record) getIntent().getSerializableExtra("Record");
+        record = (Record) getIntent().getSerializableExtra("RecordDate");
 
         //Initialization
         calendar = new GregorianCalendar(); //For date picker
@@ -218,7 +218,7 @@ public class RecordPage extends AppCompatActivity {
                     if(rowInserted != -1){
                         Toast.makeText(getBaseContext(), "Record created successfully!", Toast.LENGTH_SHORT).show();
                         //Direct to view record page
-                        Intent viewRecordIntent = new Intent(RecordPage.this, ViewRecordPage.class);
+                        Intent viewRecordIntent = new Intent(RecordPage.this, ViewIndivRecordPage.class);
                         startActivity(viewRecordIntent);
 
                     }

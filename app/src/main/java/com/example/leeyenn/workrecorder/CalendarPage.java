@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.CalendarView;
 
-import java.io.Serializable;
 import java.util.GregorianCalendar;
 
 /**
@@ -52,7 +51,7 @@ public class CalendarPage extends AppCompatActivity {
                     Log.i("No Record", "No Record Found");
                     //Pass value over with intent
                     Intent calendarIntent = new Intent(CalendarPage.this, RecordPage.class);
-                    calendarIntent.putExtra("Record", record);
+                    calendarIntent.putExtra("RecordDate", record);
                     startActivity(calendarIntent);
                 }
                 else {

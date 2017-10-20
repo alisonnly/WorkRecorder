@@ -1,5 +1,6 @@
 package com.example.leeyenn.workrecorder;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -47,7 +48,10 @@ public class ViewRecordPage extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int index, long id) {
-
+                //Pass the id over to viewindivrecord page
+                Intent viewIndivRecordIntent = new Intent();
+                viewIndivRecordIntent.putExtra("RecordID", id);
+                startActivity(viewIndivRecordIntent);
             }
         });
 
