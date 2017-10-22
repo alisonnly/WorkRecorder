@@ -203,7 +203,8 @@ public class RecordPage extends AppCompatActivity {
                 Boolean emptyNumOfTrip = commonFunction.validateNumOfTrip(numOfTripEditText.getText().toString());
                 Boolean emptyTripPrice = commonFunction.validateTripPrice(tPriceEditText.getText().toString());
                 if (emptyNumOfTrip == false && emptyTripPrice == false){
-                    record.setdTripDate(tDateEditText.getText().toString());
+                    String newDate = commonFunction.formatStringDate(tDateEditText.getText().toString());
+                    record.setdTripDate(newDate);
                     record.setdTripTime(tTimeEditText.getText().toString());
                     record.setsCompanyName(cNameEditText.getText().toString());
                     record.setsCompanyLocation(cLocationEditText.getText().toString());

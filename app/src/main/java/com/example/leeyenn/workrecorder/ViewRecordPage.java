@@ -49,7 +49,7 @@ public class ViewRecordPage extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int index, long id) {
                 //Pass the id over to viewindivrecord page
-                Intent viewIndivRecordIntent = new Intent();
+                Intent viewIndivRecordIntent = new Intent(ViewRecordPage.this, ViewIndivRecordPage.class);
                 viewIndivRecordIntent.putExtra("RecordID", id);
                 startActivity(viewIndivRecordIntent);
             }
