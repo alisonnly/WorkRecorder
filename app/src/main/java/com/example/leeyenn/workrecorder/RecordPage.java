@@ -38,7 +38,7 @@ public class RecordPage extends AppCompatActivity {
     private GregorianCalendar calendar;
     private Calendar currentTime;
     private DatePickerDialog.OnDateSetListener datePickerDialog;
-    private TimePickerDialog  timePickerDialog;
+    private TimePickerDialog timePickerDialog;
     private LocationManager locationManager;
     private String provider;
     private LocationListener locationListener;
@@ -59,17 +59,17 @@ public class RecordPage extends AppCompatActivity {
         commonFunction = new CommonFunction(this);
 
         //Get UI elements
-        tDateEditText = (EditText)findViewById(R.id.tripDateEditText);
-        tTimeEditText = (EditText)findViewById(R.id.tripTimeEditText);
-        cNameEditText = (EditText)findViewById(R.id.companyNameEditText);
-        btnGetAddress = (Button)findViewById(R.id.getAddressButton);
-        cLocationEditText = (EditText)findViewById(R.id.companyLocationEditText);
-        lDoorEditText = (EditText)findViewById(R.id.doorEditText);
-        tRubbishEditText = (EditText)findViewById(R.id.typeOfRubbishEditText);
-        numOfTripEditText = (EditText)findViewById(R.id.noOfTripEditText);
-        tPriceEditText = (EditText)findViewById(R.id.tripPriceditText);
-        btnCreate = (Button)findViewById(R.id.createButton);
-        btnCancel = (Button)findViewById(R.id.cancelButton);
+        tDateEditText = (EditText) findViewById(R.id.tripDateEditText);
+        tTimeEditText = (EditText) findViewById(R.id.tripTimeEditText);
+        cNameEditText = (EditText) findViewById(R.id.companyNameEditText);
+        btnGetAddress = (Button) findViewById(R.id.getAddressButton);
+        cLocationEditText = (EditText) findViewById(R.id.companyLocationEditText);
+        lDoorEditText = (EditText) findViewById(R.id.doorEditText);
+        tRubbishEditText = (EditText) findViewById(R.id.typeOfRubbishEditText);
+        numOfTripEditText = (EditText) findViewById(R.id.noOfTripEditText);
+        tPriceEditText = (EditText) findViewById(R.id.tripPriceditText);
+        btnCreate = (Button) findViewById(R.id.createButton);
+        btnCancel = (Button) findViewById(R.id.cancelButton);
 
         //Set text
         currentDate = commonFunction.formatDate(record.getdTripDate());
@@ -79,7 +79,7 @@ public class RecordPage extends AppCompatActivity {
 
         //Set Listeners
         //Date picker
-        datePickerDialog = new DatePickerDialog.OnDateSetListener(){
+        datePickerDialog = new DatePickerDialog.OnDateSetListener() {
 
             @Override
             public void onDateSet(DatePicker datePicker, int year, int monthOfYear, int dayOfMonth) {
@@ -107,7 +107,7 @@ public class RecordPage extends AppCompatActivity {
                 int hour, minute;
                 hour = currentTime.get(Calendar.HOUR_OF_DAY);
                 minute = currentTime.get(Calendar.MINUTE);
-                timePickerDialog = new TimePickerDialog(RecordPage.this, new TimePickerDialog.OnTimeSetListener(){
+                timePickerDialog = new TimePickerDialog(RecordPage.this, new TimePickerDialog.OnTimeSetListener() {
 
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
@@ -120,11 +120,11 @@ public class RecordPage extends AppCompatActivity {
         });
 
         //Get Address Button
-        btnGetAddress.setOnClickListener(new View.OnClickListener(){
+        btnGetAddress.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+                locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
                 // Creating an empty criteria object
                 Criteria criteria = new Criteria();
@@ -134,10 +134,20 @@ public class RecordPage extends AppCompatActivity {
 
                 //Check if GPS is ON
                 boolean statusOfGPS = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-                if (statusOfGPS == false){
+                if (statusOfGPS == false) {
                     Toast.makeText(RecordPage.this, "Please turn on GPS and try again!", Toast.LENGTH_SHORT).show();
                 }
                 // Get the location from the given provider
+                if (ActivityCompat.checkSelfPermission(RecordPage.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(RecordPage.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
+                    return;
+                }
                 Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
 
                 //Detect location change
@@ -220,6 +230,7 @@ public class RecordPage extends AppCompatActivity {
                         Toast.makeText(getBaseContext(), "Record created successfully!", Toast.LENGTH_SHORT).show();
                         //Direct to view record page
                         Intent viewRecordIntent = new Intent(RecordPage.this, ViewIndivRecordPage.class);
+                        viewRecordIntent.putExtra("RecordID", rowInserted);
                         startActivity(viewRecordIntent);
 
                     }

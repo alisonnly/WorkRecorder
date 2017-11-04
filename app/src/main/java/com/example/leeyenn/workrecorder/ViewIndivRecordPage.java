@@ -18,12 +18,12 @@ public class ViewIndivRecordPage extends AppCompatActivity {
 
         //Retrieve passed over date from Calendar Page
         //A long value is always declared with a L suffix.
-//        long recordID = getIntent().getLongExtra("RecordID", -1L);
-//        int intRecordID = (int) recordID;
+        long recordID = getIntent().getLongExtra("RecordID", 0);
+        int intRecordID = (int) recordID;
 
         //Initialize RecordDBHandler
         recordDBHandler = new RecordDBHandler(this);
-        record = recordDBHandler.getRecordById(6);
+        record = recordDBHandler.getRecordById(intRecordID);
 
         //Get UI elements
         displayDateTextView = (TextView)findViewById(R.id.tDateDisplaytextView);

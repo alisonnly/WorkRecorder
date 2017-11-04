@@ -107,6 +107,7 @@ public class RecordDBHandler extends SQLiteOpenHelper{
 
     //Read record by specific ID
     public Record getRecordById(int recordID){
+        Record record = null;
         //Read to db
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -119,12 +120,11 @@ public class RecordDBHandler extends SQLiteOpenHelper{
         if (cursor != null){
             //Go to the first record
             cursor.moveToFirst();
+            //Store the data into object
+            record = new Record(Integer.parseInt(cursor.getString(0)),
+                    cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4),
+                    cursor.getString(5), cursor.getString(6), cursor.getInt(7), cursor.getFloat(8));
         }
-
-        //Store the data into object
-        Record record = new Record(Integer.parseInt(cursor.getString(0)),
-                cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4),
-                cursor.getString(5), cursor.getString(6), cursor.getInt(7), cursor.getFloat(8));
 
         //Close the cursor
         cursor.close();
