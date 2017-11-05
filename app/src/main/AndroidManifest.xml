@@ -30,6 +30,7 @@
         <activity android:name=".CalendarPage" />
         <activity android:name=".ViewRecordPage" />
         <activity android:name=".ViewIndivRecordPage" />
+        <activity android:name=".RecordListAdapter"></activity>
     </application>
 
 </manifest>

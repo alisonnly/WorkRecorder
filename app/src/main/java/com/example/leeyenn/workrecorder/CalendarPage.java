@@ -57,6 +57,7 @@ public class CalendarPage extends AppCompatActivity {
                 else {
                     Log.i("Record Found", "No of records found: " + checkRecordCount);
                     Intent viewRecordIntent = new Intent(CalendarPage.this, ViewRecordPage.class);
+                    viewRecordIntent.putExtra("RecordDate", record);
                     startActivity(viewRecordIntent);
                 }
             }

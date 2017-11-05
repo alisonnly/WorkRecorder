@@ -23,18 +23,22 @@ public class ViewRecordPage extends AppCompatActivity {
     private Record record;
     private List<Record> recordList;
     private ListView listView;
-    private ArrayAdapter recordArrayAdapter;
+    private ArrayAdapter<Record> recordArrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_record_page);
 
-        //Retrieve all existing records
+        //Retrieve passed over date from Calendar Page
+        record = (Record) getIntent().getSerializableExtra("RecordDate");
+
+        //Initializer dbhandler
         recordDBHandler = new RecordDBHandler(this);
 
-        //Store the records array
+        //Initialize array
         recordList = new ArrayList<Record>();
+        recordList = recordDBHandler.getRecordsByDate(record.getdTripDate());
 
         //Get UI elements
         listView = (ListView)findViewById(R.id.recordListView);

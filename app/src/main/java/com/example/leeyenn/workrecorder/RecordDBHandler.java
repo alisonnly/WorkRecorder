@@ -134,6 +134,42 @@ public class RecordDBHandler extends SQLiteOpenHelper{
         return record;
     }
 
+    //Get all records based on date
+    public List<Record> getRecordsByDate(String date) {
+        List<Record> recordList = new ArrayList<Record>();
+
+        //Get db write permission
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        //Select query
+        Cursor cursor = db.query(TABLE_NAME, null, COLUMN_TRIPDATE + " =?", new String[] {date},
+                null, null, null, null);
+
+        //If there is data
+        if (cursor.moveToFirst()) {
+            do {
+                Record record = new Record();
+                record.setIntRecordID(cursor.getInt(0));
+                record.setdTripDate(cursor.getString(1));
+                record.setdTripTime(cursor.getString(2));
+                record.setsCompanyName(cursor.getString(3));
+                record.setsCompanyLocation(cursor.getString(4));
+                record.setsCompanyDoor(cursor.getString(5));
+                record.setsTypeOfRubbish(cursor.getString(6));
+                record.setIntNumOfTrip(cursor.getInt(7));
+                record.setfTripPrice(cursor.getFloat(8));
+                recordList.add(record);
+            } while (cursor.moveToNext());
+        }
+
+        //Close the cursor
+        cursor.close();
+        //Close the db
+        db.close();
+
+        return recordList;
+    }
+
     //Read all record
     public List<Record> getAllRecords() {
         List<Record> recordList = new ArrayList<Record>();

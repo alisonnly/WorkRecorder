@@ -6,145 +6,74 @@
     android:layout_height="match_parent"
     tools:context="com.example.leeyenn.workrecorder.ViewIndivRecordPage">
 
-    <TableRow
-        android:layout_width="350dp"
-        android:layout_height="103dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.732" />
-
 
     <TextView
         android:id="@+id/cNameDisplaytextView"
-        android:layout_width="341dp"
-        android:layout_height="16dp"
-        android:text=""
-        android:gravity="center"
-        tools:layout_conversion_absoluteX="8dp"
-        tools:layout_conversion_absoluteY="8dp"
-        tools:layout_conversion_absoluteWidth="341dp"
-        tools:layout_conversion_absoluteHeight="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="345dp"
+        android:layout_height="38dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        app:layout_constraintVertical_bias="0.137"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
+        android:gravity="center"
+        android:text=""
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.245"
+        tools:layout_conversion_absoluteHeight="16dp"
+        tools:layout_conversion_absoluteWidth="341dp"
+        tools:layout_conversion_absoluteX="8dp"
+        tools:layout_conversion_absoluteY="8dp" />
 
     <TextView
         android:id="@+id/cLocationDisplaytextView"
-        android:layout_width="331dp"
-        android:layout_height="55dp"
-        android:text=""
+        android:layout_width="334dp"
+        android:layout_height="65dp"
+        android:layout_marginBottom="268dp"
         android:gravity="center"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
-        android:layout_marginTop="86dp"
-        app:layout_constraintHorizontal_bias="0.509"
+        android:text=""
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintVertical_bias="0.019" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <TextView
         android:id="@+id/tDateDisplaytextView"
-        android:layout_width="155dp"
-        android:layout_height="23dp"
-        android:text="test"
-        android:gravity="right"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="161dp"
+        android:layout_height="39dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="test"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.197"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="27dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tTimeDisplaytextView"
         android:layout_width="129dp"
-        android:layout_height="23dp"
+        android:layout_height="38dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
         android:text=""
-        android:gravity="left"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.861"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintVertical_bias="0.04"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
-
-    <TableRow
-        android:layout_width="355dp"
-        android:layout_height="108dp"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
-        android:layout_marginBottom="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="@+id/constraintLayout"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintVertical_bias="0.431" />
-
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:layout_constraintBottom_creator="1"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1">
-
-        <!--<View-->
-            <!--android:id="@+id/myRectangleView"-->
-            <!--android:layout_width="360dp"-->
-            <!--android:layout_height="150dp"-->
-            <!--android:layout_marginBottom="8dp"-->
-            <!--android:layout_marginEnd="6dp"-->
-            <!--android:layout_marginRight="6dp"-->
-            <!--android:layout_marginTop="8dp"-->
-            <!--android:background="@drawable/rectangle"-->
-            <!--app:layout_constraintBottom_toBottomOf="parent"-->
-            <!--app:layout_constraintRight_toRightOf="parent"-->
-            <!--app:layout_constraintTop_toTopOf="parent"-->
-            <!--app:layout_constraintVertical_bias="0.0"-->
-            <!--tools:layout_conversion_absoluteHeight="150dp"-->
-            <!--tools:layout_conversion_absoluteWidth="365dp"-->
-            <!--tools:layout_conversion_absoluteX="8dp"-->
-            <!--tools:layout_conversion_absoluteY="24dp"></View>-->
-
-
-    </android.support.constraint.ConstraintLayout>
+        app:layout_constraintVertical_bias="0.124" />
 
 
 </android.support.constraint.ConstraintLayout>

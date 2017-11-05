@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/linearLayout"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context="com.example.leeyenn.workrecorder.RecordListAdapter">
+
+<TextView
+    android:id="@+id/doorListTextView"
+    android:layout_width="54dp"
+    android:layout_height="21dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="8dp"
+    android:text="@string/Door"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/companyLocationTextView" />
+
+<TextView
+    android:id="@+id/tripDateListTextView"
+    android:layout_width="91dp"
+    android:layout_height="21dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="4dp"
+    android:text="@string/TripDate"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.028"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+<TextView
+    android:id="@+id/tripTimeListTextView"
+    android:layout_width="89dp"
+    android:layout_height="21dp"
+    android:layout_marginEnd="68dp"
+    android:layout_marginLeft="108dp"
+    android:layout_marginRight="68dp"
+    android:layout_marginTop="4dp"
+    android:text="@string/TripTime"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+<TextView
+    android:id="@+id/companyNameListTextView"
+    android:layout_width="271dp"
+    android:layout_height="21dp"
+    android:layout_marginEnd="80dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="12dp"
+    android:text="@string/CompanyName"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/tripDateTextView" />
+
+<TextView
+    android:id="@+id/companyLocationListTextView"
+    android:layout_width="331dp"
+    android:layout_height="39dp"
+    android:layout_marginEnd="24dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="12dp"
+    android:text="@string/CompanyLocation"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/companyNameTextView"
+    android:layout_marginRight="24dp" />
+
+<TextView
+    android:id="@+id/typeOfRubbishListTextView"
+    android:layout_width="wrap_content"
+    android:layout_height="21dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:text="@string/TypeOfRubbish"
+    app:layout_constraintStart_toEndOf="@+id/doorTextView"
+    app:layout_constraintTop_toBottomOf="@+id/companyLocationTextView"
+    android:layout_marginLeft="8dp" />
+
+<TextView
+    android:id="@+id/noOfTripListTextView"
+    android:layout_width="77dp"
+    android:layout_height="22dp"
+    android:layout_marginStart="12dp"
+    android:layout_marginTop="8dp"
+    android:text="@string/NoOfTrips"
+    app:layout_constraintStart_toEndOf="@+id/typeOfRubbishTextView"
+    app:layout_constraintTop_toBottomOf="@+id/companyLocationTextView"
+    android:layout_marginLeft="12dp" />
+
+<TextView
+    android:id="@+id/tripPriceListTextView"
+    android:layout_width="84dp"
+    android:layout_height="22dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:text="@string/TripPrice"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.263"
+    app:layout_constraintStart_toEndOf="@+id/noOfTripTextView"
+    app:layout_constraintTop_toBottomOf="@+id/companyLocationTextView" />
+
+</android.support.constraint.ConstraintLayout>
+
