@@ -1,6 +1,8 @@
 package com.example.leeyenn.workrecorder;
 
+import android.app.Activity;
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,26 +20,28 @@ import java.util.ArrayList;
 
 public class RecordListAdapter extends ArrayAdapter<Record> {
 
-    private TextView tripDateTextView, tripTimeTextView, companyNameTextView, companyLocationTextView, locationDoorTextView,
-                     typeOfRubbishTextView, numOfTripTextView, tripPriceTextView;
+    //Initialize variables
+    private Activity activity;
+    private ArrayList<Record> recordArrayList;
+    private static LayoutInflater layoutInflater = null;
 
-    public RecordListAdapter(Context context, ArrayList<Record> recordArrayList) {
-        super(context, 0, recordArrayList);
-    }
 
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent){
-        //Get the data item for this position
-        Record record = getItem(position);
-        //Check if an existing view is being reused, otherwise inflate the view
-        if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.activity_view_record_page, parent);
+    public RecordListAdapter(Activity activity, int textViewResourceId, ArrayList<Record> rArrayList) {
+        super(activity, textViewResourceId, rArrayList);
+        try {
+            this.activity = activity;
+            this.recordArrayList = rArrayList;
+
+            layoutInflater = (LayoutInflater)activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        }  catch (Exception e){
+
         }
-        //Get UI elements
-        tripDateTextView = (TextView)convertView.findViewById(R.id.tripDateListTextView);
-        //continue textview
-
-
-        return convertView;
     }
+
+    //Get record array list size
+    public int getRecordCount(){
+        return recordArrayList.size();
+    }
+
+    //https://stackoverflow.com/questions/15297840/populate-listview-from-arraylist-of-objects
 }
